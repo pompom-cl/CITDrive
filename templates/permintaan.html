@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Permintaan - CAR PLIKS
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    {% if request %}
+        {% for request in requests %}
+        <div class="buttons">
+            <strong>Pesanan ID: {{request[0]}}</strong> 
+            {% if session["username"] == "admin" %}
+            <!-- <a class="accept" href="/terima/{{ request[0] }}">Terima</a>
+            <a class="reject" href="/tolak/{{ request[0] }}">Tolak</a> -->
+            <form action="/update_status" method="POST" style="display: inline;">
+                <input type="hidden" name="request_id" value="{{ request[0] }}">
+                <button type="submit" name="status" value="Accepted" class="accept">Terima</button>
+            </form>
+
+            <form action="/update_status" method="POST" style="display: inline;">
+                <input type="hidden" name="request_id" value="{{ request[0] }}">
+                <button type="submit" name="status" value="Pending" class="pending">Pending</button>
+            </form>
+        
+            <form action="/update_status" method="POST" style="display: inline;">
+                <input type="hidden" name="request_id" value="{{ request[0] }}">
+                <button type="submit" name="status" value="Rejected" class="reject">Tolak</button>
+            </form>
+            {% endif %}
+        </div>
+        <div class="request">
+                <!-- {{request}} -->
+                <table>
+                    <tr>
+                        <td><strong>Nama Penyewa</strong></td>
+                        <td>{{ request[3] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nomor Kontak</strong></td>
+                        <td>{{ request[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alamat</strong></td>
+                        <td>{{ request[5] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tanggal Mulai</strong></td>
+                        <td>{{ request[6] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Durasi</strong></td>
+                        <td>{{ request[7] }} hari</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status</strong></td>
+                        <td>
+                            <span class="status 
+                                {% if request[8] == 'Accepted' %}accepted
+                                {% elif request[8] == 'Pending' %}pending
+                                {% elif request[8] == 'Rejected' %}rejected
+                                {% endif %}
+                            ">
+                                {{ request[8] }}
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table>
+                    <tr>
+                        <td><strong>Brand:</strong></td>
+                        <td>{{ request[10] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Model:</strong></td>
+                        <td>{{ request[11] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Warna:</strong></td>
+                        <td>{{ request[12] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nomor kendaraan:</strong></td>
+                        <td>{{ request[13] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tahun:</strong></td>
+                        <td>{{ request[14] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kursi:</strong></td>
+                        <td>{{ request[15] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Harga:</strong></td>
+                        <td>{{ request[16] }}</td>
+                    </tr>
+                </table>
+
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>Tidak ada permintaan sewa.</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Car Pliks">
+        </div>
+    
+        <div class="links">
+        {% if session["username"] == "admin" %}
+            <a href="/">Katalog</a>
+            <a href="/permintaan">Permintaan</a>
+            <a href="/tambah">Tambah</a>
+            <!-- <a href="/riwayat">Riwayat</a> -->
+        {% elif session["username"] %}
+            <a href="/">Katalog</a>
+            <a href="/riwayat">Riwayat</a>
+        {% endif %}
+        </div>
+
+        <div class="button">
+        {% if session["username"] %}
+            <a href="/logout">Log Out</a>
+        {% else %}
+            <a href="/signup">Sign up</a>
+            <a href="/login">Log In</a>
+        {% endif %}
+        </div>
+    </nav>
+
+    
+    {% if not session["username"]%}
+    <header>
+        <div class="left">
+            <h1>Let's Order</h1>
+            <h2>CITDrive</h2>
+            <p>Nikmati perjalanan nyaman dengan layanan sewa mobil terbaik. 
+                Fleksibel, terpercaya, dan siap menemani setiap perjalanan Anda!
+            </p>
+        </div>
+        <img src="static/images/gambar-1.png" alt="Mobil Mewah">
+    </header>
+    {% endif %}
+
+        {% block main %}{% endblock %}
+
+        </div>
+    </nav>

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tambah - CAR PLIKS
+{% endblock %}
+
+{% block main %}
+
+
+<div class="container">
+    <h2>Tambah Mobil</h2>
+    <form method="post" action="/tambah" enctype="multipart/form-data">
+        <label for="brand">Brand</label>
+        <input type="text" id="brand" name="brand" required>
+    
+        <label for="model">Model</label>
+        <input type="text" id="model" name="model" required>
+    
+        <label for="warna">Warna</label>
+        <input type="text" id="warna" name="warna" required>
+    
+        <label for="nomor_kendaraan">Nomor Kendaraan</label>
+        <input type="text" id="nomor_kendaraan" name="nomor_kendaraan" required>
+    
+        <label for="tahun">Tahun</label>
+        <input type="number" id="tahun" name="tahun" min="1500" max="2099" required>
+    
+        <label for="kursi">Kursi</label>
+        <input type="number" id="kursi" name="kursi" min="1" required>
+    
+        <label for="harga">Harga</label>
+        <input type="number" id="harga" name="harga" min="0" step="1000" required>
+        <label for="availability">Availability:</label>
+        <select name="availability" id="availability" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <label for="foto">Foto</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required>
+        
+        <button type="submit">Tambahkan</button>
+    </form>
+</div>
+
+{% endblock %}

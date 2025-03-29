@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Katalog Sewa Mobil - CAR PLIKS
+{% endblock %}
+
+{% block main %}
+
+    <h2 class="listmobil">List Mobil</h2>
+
+    {%if catalogues %}
+    
+    <form method="GET" action="/filter" class="filter-container">
+        <label for="price_filter">Filter berdasarkan harga:</label>
+        <select name="price_filter" id="price_filter">
+            <option value="ASC" {% if request.args.get('filter_harga') == 'asc' %}selected{% endif %}>Ascending</option>
+            <option value="DESC" {% if request.args.get('filter_harga') == 'desc ' %}selected{% endif %}>Descending</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <div class="katalog">
+        <div class="list">
+
+            {% for cat in catalogues %}
+            <div class="item">
+                <img src="{{ cat[9] }}" alt="{{ cat[0] }}">
+                <div class="info">
+                    <div>
+                        <h5>{{ cat[1] }} {{ cat[2] }}</h5>
+
+                        {% if session["username"] and session["username"] != "admin" %}
+                        <a href="/sewa/{{ cat[0] }}" class="icon-btn">
+                            <i class='bx bx-cart-add'></i>
+                        </a>
+                        {% endif %}
+                        
+                        {% if session["username"] == "admin" %}
+                        <a href="/edit/{{ cat[0] }}" class="icon-btn">
+                            <i class='bx bx-edit'></i>
+                        </a>
+                        <a href="/delete/{{ cat[0] }}" onclick="return confirm('Apakah Anda yakin ingin menghapus {{ cat[1] }} {{ cat[2] }}?')" class="icon-btn">
+                            <i class='bx bx-trash'></i>
+                        </a>
+                        {% endif %}
+
+                        
+                        <table>
+                            <tr>
+                                <td><strong>Warna:</strong></td>
+                                <td>{{ cat[3] }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nomor kendaraan:</strong></td>
+                                <td>{{ cat[4] }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tahun:</strong></td>
+                                <td>{{ cat[5] }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kursi:</strong></td>
+                                <td>{{ cat[6] }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Harga:</strong></td>
+                                <td>Rp{{ "{:,.2f}".format(cat[7]) }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Available:</strong></td>
+                                <td>
+                                    <span class="availability {{ 'yes' if cat[8] == 'Yes' else 'no' }}">
+                                        {{ cat[8] }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <p>Tidak ada mobil yang tersedia.</p>
+    {% endif %}
+            
+        </div> 
+    </div> 
+
+{% endblock %}

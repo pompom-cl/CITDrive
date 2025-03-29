@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit - CAR PLIKS
+{% endblock %}
+
+{% block main %}
+
+
+<div class="container">
+    <h2>Edit Mobil</h2>
+    <form method="POST">
+        <label>Brand:</label>
+        <input type="text" name="brand" value="{{ catalogue[1] }}" required>
+
+        <label>Model:</label>
+        <input type="text" name="model" value="{{ catalogue[2] }}" required>
+
+        <label>Warna:</label>
+        <input type="text" name="color" value="{{ catalogue[3] }}" required>
+
+        <label>Nomor Kendaraan:</label>
+        <input type="text" name="plate" value="{{ catalogue[4] }}" required>
+
+        <label>Tahun:</label>
+        <input type="number" name="year" value="{{ catalogue[5] }}" required>
+
+        <label>Kursi:</label>
+        <input type="number" name="seats" value="{{ catalogue[6] }}" required>
+
+        <label>Harga:</label>
+        <input type="number" name="price" value="{{ catalogue[7] }}" required>
+
+        <label>Available:</label>
+        <select name="availability" required>
+            <option value="Yes" {% if catalogue[8] == 'Yes' %} selected {% endif %}>Yes</option>
+            <option value="No" {% if catalogue[8] == 'No' %} selected {% endif %}>No</option>
+        </select>
+
+        <button type="submit">Edit</button>
+    </form>
+</div>
+
+{% endblock %}

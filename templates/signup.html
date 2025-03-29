@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}">
+    </div>
+
+
+    </div>
+    <div class="container">
+        <h1>Create your account</h1>
+        <div class="signup"></div>
+        <form action="/signup" method="post">
+            <label for="username">Username:</label>
+            <div class="custome-input">
+                <input type="text" name="username" placeholder="Your Username" autocomplete="off">
+                <i class='bx bx-at'></i>
+            </div>
+
+            <!-- <label for="name">Name:</label>
+            <div class="custome-input">
+                <input type="text" name="name" placeholder="Your Name" autocomplete="off">
+                <i class='bx bx-at'></i>
+            </div> -->
+
+            <label for="password">Password:</label>
+            <div class="custome-input">
+                <input type="password" name="password" placeholder="Your Password">
+               
+            </div>
+
+            <label for="Confirm password">Confirm Password:</label>
+            <div class="custome-input">
+                <input type="password" name="con_password" placeholder="Your Password">
+    
+            </div>
+
+            <button class="login">Sign up</button>
+            <div class="links">
+                <a href="/login">Already have an account?</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

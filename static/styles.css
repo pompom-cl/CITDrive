@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h2 {
+    margin: 0.5em 0px;
+}
+
+.links a{
+    text-decoration: none;
+    color: black;
+    transition: 0.3s ease-in-out; 
+}
+.links a:hover{
+    color: #46953d;
+}
+body {
+    background-color: #f1f1f1;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+}
+
+nav {
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 150px;
+}
+
+nav .links a{
+    margin-right: 20px;
+}
+
+nav .button {
+    display: flex; 
+    gap: 15px; 
+}
+
+nav .button a {
+    text-decoration: none; 
+    padding: 8px 14px; 
+    background-color: black; 
+    color: white; 
+    border-radius: 4px; 
+    font-weight: bold;
+    transition: 0.3s ease-in-out; 
+}
+
+nav .button a:hover {
+    background-color: #46953d;
+}
+
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+    margin-right: 20px; 
+}
+
+.icon-btn i:hover {
+    color: #46953d; 
+}
+
+.icon-btn i.bx-trash:hover {
+    color: darkred;
+}
+
+.toggle-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.toggle-btn.not-available {
+    background-color: red;
+}
+
+
+header{
+    padding: 0 80px;
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .left{
+    width: 700px;
+}
+
+
+header .left h1{
+    font-size: 100px;
+}
+
+header .left h2{
+    color: #46953d;
+    font-size: 130px;
+}
+
+header .left p{
+    margin: 50px 0;
+    color: #777;
+    font-size: 20px;
+}
+
+header img{
+    width: 1000px;
+    display: flex;
+}
+
+h2.listmobil{    
+    padding: 0 80px;
+    font-size: 40px;
+}
+
+.filter-container {
+    padding: 0 80px;
+}
+
+.katalog .list .item{
+    padding: 20px;
+    background: #fff;
+    border-radius: 18px;
+}
+
+.katalog .list .item:hover{
+    box-shadow: none;
+}
+
+.katalog{
+    padding: 0 80px;
+    margin-top: 30px;
+}
+
+.katalog .category{
+    display: flex;
+    gap: 14px;
+}
+
+.katalog .category a{
+    background-color: #dfdcdc;
+    padding: 8px 14px;
+    font-size: 15px;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.katalog .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; 
+}
+
+.katalog .list .item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.katalog .list .item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.katalog .list .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; 
+}
+
+
+.katalog .list .item .info h5{
+    font-size: 18px;
+}
+
+/* .katalog .list .item table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.katalog .list .item table td {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+} */
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+table td {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.katalog .availability {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.katalog .availability.yes {
+    color: white;
+    background-color: #46953d;
+}
+
+.katalog .availability.no {
+    color: white;
+    background-color: darkred;
+}
+
+/* PERMINTAAN */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.container .request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.request div{
+    width: 100%;
+    
+}
+
+textarea {
+    width: 100%; 
+    height: 50px; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; 
+    font-family: inherit;
+}
+
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.container .buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container .buttons a {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.container .buttons .accept {
+    background-color:black;
+    color: white;
+}
+
+.container .buttons .accept:hover{
+    background: #46953d;
+    transition: 0.3s ease-in-out; 
+}
+.container .buttons .pending:hover{
+    background: rgb(184, 137, 10);
+    transition: 0.3s ease-in-out; 
+}
+.container .buttons .reject {
+    background-color: black;
+    color: white;
+}
+
+.container .buttons .reject:hover{
+    background-color: darkred;
+    transition: 0.3s ease-in-out; 
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.status.accepted {
+    background-color: #46953d; /* Green */
+}
+
+.status.pending {
+    background-color: rgb(184, 137, 10); /* Yellow */
+}
+
+.status.rejected {
+    background-color: darkred; /* Red */
+}
+
+/* TAMBAH */
+button {
+    display: block;
+    margin: 10px 0;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #46953d;
+    transition: 0.3s ease-in-out; 
+}
+
+@media screen and (max-width: 768px) {
+
+    nav {
+        padding: 0 20px;
+    } 
+    
+    h2.listmobil{    
+        padding: 0 20px;
+  
+    }
+
+    .katalog{
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+
+    katalog  {
+        padding: 0 10px;
+    }
+
+    .logo img {
+        width: 60px;
+    }
+
+    .container{
+        padding: 0 20px;
+        width: 90%;
+    }
+
+    .filter-container {
+        padding: 0 20px;
+    }
+
+    .container .request {
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: left;
+        height: auto;
+        padding: 20px;
+    }
+
+    header .left {
+        width: 100%;
+    }
+
+    header .left h1 {
+        font-size: 50px;
+    }
+
+    header .left h2 {
+        font-size: 70px;
+    }
+
+    header .left p {
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    header img {
+        width: 90%;
+        max-width: 400px;
+    }
+}
